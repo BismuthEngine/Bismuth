@@ -40,3 +40,6 @@ Build/
 *.vcxproj
 *.vcxproj.filters
 *.vcxproj.user
+x64/
+x86/
+x32/
