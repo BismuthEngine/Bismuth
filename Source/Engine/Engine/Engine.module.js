@@ -1,8 +1,8 @@
 
-export default class EngineModule {
+module.exports = class EngineModule {
     constructor(rules) {
         this.Name = "Engine";
-        this.Imports = ["Mixture", "Sodium"];
+        this.Imports = ["Sodium", "Mixture", "Delegate"];
         this.Exports = [];
     }
 };

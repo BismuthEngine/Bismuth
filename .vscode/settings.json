@@ -1,0 +1,10 @@
+{
+    "C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.cppm": "cpp",
+        "system_error": "cpp",
+        "xlocale": "cpp"
+    }
+}

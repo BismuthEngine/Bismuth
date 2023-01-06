@@ -1,8 +1,8 @@
 
-export default class SodiumModule {
+module.exports = class SodiumModule {
     constructor(target) {
         this.Name = "Sodium";
-        this.Imports = ["SodiumVulkan"];
+        this.Imports = ["SodiumAPI", "SodiumVulkan"];
         this.Exports = [];
         // Sodium is not intended for in-editor use, no need in reflecion
         this.useBMT = false;

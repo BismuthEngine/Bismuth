@@ -1,4 +1,4 @@
-#pragma once
+export module SodiumAPI:SodiumDevice;
 
 export struct SodiumDeviceCreationInfo {
 

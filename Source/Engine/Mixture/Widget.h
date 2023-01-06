@@ -1,12 +1,11 @@
 #pragma once
+class ISodiumCmdBuffer;
 
-import Sodium;
-
-export struct SGeometry {
+struct SGeometry {
 
 };
 
-export class MixtureWidget {
+class MixtureWidget {
 protected:
 	// Rendering function
 	virtual void OnPaint(ISodiumCmdBuffer* cmd);
