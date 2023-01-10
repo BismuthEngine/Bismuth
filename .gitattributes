@@ -63,4 +63,4 @@
 #*.RTF   diff=astextplain
 
 * linguist-vendored
-*.cppm linguist-vendored=false
+*.cpp linguist-vendored=false
