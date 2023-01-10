@@ -7,8 +7,8 @@ class NObject;
 
 export
 struct BismuthStaticObjectFactory {
-        static std::map<std::string, NObject*>& GetRegistry() {
-                static std::map<std::string, NObject*> registry;
+        static std::map<std::string, ObjectBase*>& GetRegistry() {
+                static std::map<std::string, ObjectBase*> registry;
                 return registry;
         }
 

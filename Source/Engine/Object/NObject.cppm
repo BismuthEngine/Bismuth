@@ -1,7 +1,7 @@
 export module Object:NObject;
 
 export import :ObjectBase;
-import :Reflector
+import :Reflector;
 
 export class NObject : public ObjectBase { 
 public:

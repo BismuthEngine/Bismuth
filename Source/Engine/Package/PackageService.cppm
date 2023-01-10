@@ -2,12 +2,6 @@ export module Package:PackageService;
 
 import Services;
 
-export class NPackageService : public NService {
+export class SPackageService : public SService {
 public:
-    static std::string className = "PackageService";
 };
-
-// Register NPackageService to ObjectFactory
-export
-template<> 
-const bool BismuthStaticObjectState<NPackageService>::bRegistered = DefferedBismuthStaticObjectRegister<NPackageService>();
