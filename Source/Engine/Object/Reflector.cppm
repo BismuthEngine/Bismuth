@@ -1,6 +1,11 @@
+module;
+
+#include <map>
+#include <string>
+
 export module Object:Reflector;
 
-export import :Concepts;
+import :Concepts;
 import :ObjectBase;
 
 class NObject;
@@ -12,23 +17,23 @@ struct BismuthStaticObjectFactory {
                 return registry;
         }
 
-        template<BismuthProject ObjectType>
-        static ObjectType* CreateStaticObjectProrotype() {
+        template <BismuthObject ObjectType>
+        static ObjectBase* CreateStaticObjectProrotype() {
                 ObjectType* PartiallyInitializedObject = new ObjectType();
                 // Partially Initialize Base Object
                 return PartiallyInitializedObject;
         }
-}
-
-export
-template <BismuthObject ObjectType>
-struct BismuthStaticObjectState {
-	static inline const bool bRegistered;
 };
 
 export
 template <BismuthObject ObjectType>
-static inline bool DefferedBismuthStaticObjectRegister() {
+struct BismuthStaticObjectState {
+	static inline bool bRegistered;
+};
+
+export
+template <BismuthObject ObjectType>
+bool DefferedBismuthStaticObjectRegister() {
         auto& registry = BismuthStaticObjectFactory::GetRegistry();
         registry[ObjectType::className] = BismuthStaticObjectFactory::CreateStaticObjectProrotype<ObjectType>();
         return true;
