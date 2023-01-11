@@ -1,5 +1,13 @@
 export module Sodium:SodiumRenderer;
 
-export class SodiumRenderer {
+import :Loader;
 
+export class SodiumRenderer {
+protected:
+    ISodiumInstance* instance;
+    ISodiumSurface* surface;
+public:
+    SodiumRenderer();
+
+    void InitializeWithSurface(ESurfaceType type, void* handle);
 };

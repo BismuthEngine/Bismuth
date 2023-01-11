@@ -14,5 +14,13 @@ export import :FiberWindow;
 
 export class FiberFactory {
 public:
-    static IFiberWindow* CreateWindow() {return new Win32FiberWindow();} 
+    static IFiberWindow* CreateWindow() {
+        #ifdef PLATFORM_WINDOWS
+            return new Win32FiberWindow();
+        #elif defined(PLATFORM_LINUX)
+            // Detect server
+        #elif defined(PLATFORM_MAC)
+            // Implement
+        #endif
+    } 
 };

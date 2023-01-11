@@ -8,5 +8,5 @@ export struct SodiumPhysicalDeviceCreationInfo {
 
 export class ISodiumPhysicalDevice {
 public:
-    virtual ISodiumDevice* CreateDevice() {}
+    virtual ISodiumDevice* CreateDevice() {return nullptr;}
 };
