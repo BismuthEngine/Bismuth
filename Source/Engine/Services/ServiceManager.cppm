@@ -4,10 +4,12 @@ export import :Service;
 
 export
 class SServiceManager {
-    static SServiceManager singleton;
+    static const SServiceManager& singleton;
 public:
-    const SServiceManager& Get() {return singleton;}
+    static const SServiceManager& Get() {return singleton;}
 };
+
+const SServiceManager& SServiceManager::singleton = SServiceManager();
 
 export 
 template <BismuthService ServiceType>

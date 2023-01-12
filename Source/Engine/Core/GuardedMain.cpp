@@ -1,9 +1,12 @@
+import Services;
+
 #include "GuardedMain.h"
 
 #ifdef PLATFORM_WINDOWS
 int GuardedMain() {
-	//std::cout << 5 << std::endl;
-	return 25;
+	const SServiceManager& servmgr = SServiceManager::Get();
+	
+	return 0;
 }
 #else 
 int GuardedMain() {
