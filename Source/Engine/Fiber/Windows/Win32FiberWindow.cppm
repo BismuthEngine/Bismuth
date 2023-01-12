@@ -9,6 +9,7 @@ export class Win32FiberWindow : public IFiberWindow {
 protected:
     HWnd hwnd;
     HInstance hInstance;
+    Msg msg;
 
     static LResult WindowProc(HWnd hwnd, UInt uMsg, WParam wParam, LParam lParam) {
         switch(uMsg) {

@@ -3,7 +3,7 @@ import Log;
 
 #include "GuardedMain.h"
 
-#ifdef PLATFORM_WINDOWS
+#if defined(PLATFORM_WINDOWS) || defined(_WIN32)
 int GuardedMain() {
 	const SServiceManager& servmgr = SServiceManager::Get();
 	Logger::Log("Bismuth Engine");
