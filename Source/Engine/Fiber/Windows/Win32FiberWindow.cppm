@@ -9,6 +9,25 @@ export class Win32FiberWindow : public IFiberWindow {
 protected:
     HWnd hwnd;
     HInstance hInstance;
+
+    static LResult WindowProc(HWnd hwnd, UInt uMsg, WParam wParam, LParam lParam) {
+        switch(uMsg) {
+            case WinAPIStatics::WM_Destroy:
+
+                return 0;
+            case WinAPIStatics::WM_Create:
+
+                return 0;
+            case WinAPIStatics::WM_KeyDown:
+
+                return 0;
+            case WinAPIStatics::WM_KeyUp:
+
+                return 0;
+        }
+
+        return DefWindowProcStub(hwnd, uMsg, wParam, lParam);
+    }
 public:
     Win32FiberWindow() {
     }
@@ -22,7 +41,7 @@ public:
 
         WndClass wc = { };
 
-        //wc.lpfnWndProc   = WindowProc;
+        wc.lpfnWndProc   = Win32FiberWindow::WindowProc;
         wc.hInstance     = hInstance;
         wc.lpszClassName = title.Data();
 
@@ -51,7 +70,7 @@ public:
         }
     }
     
-    virtual void Show() {}
+    virtual void Show() {ShowWindowStub(hwnd, false);}
     virtual void Hide() {}
 
     virtual void Minimize() {}
