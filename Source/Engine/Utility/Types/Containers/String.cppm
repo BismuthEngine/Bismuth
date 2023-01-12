@@ -21,5 +21,5 @@ public:
         }
     }
 
-    
+    const char* Data() const {return nullptr;}
 };

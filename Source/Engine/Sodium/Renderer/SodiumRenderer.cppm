@@ -7,7 +7,17 @@ protected:
     ISodiumInstance* instance;
     ISodiumSurface* surface;
 public:
-    SodiumRenderer();
+    SodiumRenderer() {
+        SodiumInstanceCreationInfo info;
+ 
+        instance = Sodium::CreateInstance(info);
+    }
 
-    void InitializeWithSurface(ESurfaceType type, void* handle);
+    void InitializeWithSurface(ESurfaceType type, void* handle) {
+        SodiumSurfaceCreateInfo info;
+        info.surfaceType = type;
+        info.pHandle = handle;
+        
+        surface = instance->CreateSurface(info);
+    }
 };

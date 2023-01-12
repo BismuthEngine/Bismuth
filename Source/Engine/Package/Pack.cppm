@@ -1,18 +1,16 @@
-module;
-
-//#include <cstdarg>
-//#include <algorithm>
-//#include <vector>
-
 export module Package:Pack;
 
 export import :Artifact;
 
+import Types;
+
 export class SPackage {
 protected:
-    //std::vector<SArtifact> artifacts;
+    TArray<SArtifact> artifacts;
 
 public:
 
-    void Add(unsigned int count, ...);
+    void Add(const SArtifact& artifact) {
+        artifacts.Add(artifact);
+    }
 };

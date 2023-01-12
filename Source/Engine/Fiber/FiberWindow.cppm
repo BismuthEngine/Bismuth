@@ -4,6 +4,8 @@ export import :FiberDispatcher;
 
 export import Sodium;
 
+import Types;
+
 export class IFiberWindow {
 protected:
     const FiberDispatcher* eventDispatcher;
@@ -15,7 +17,7 @@ public:
         renderer = new SodiumRenderer();
     }
 
-    virtual void Initialize(/*std::string title,*/ unsigned int width, unsigned int height, bool fullscreen = false) {}
+    virtual void Initialize(SString title, unsigned int width, unsigned int height, bool fullscreen = false) {}
     
     virtual void Show() {}
     virtual void Hide() {}
@@ -26,7 +28,7 @@ public:
 
     virtual void MinMax() {}
 
-    virtual void SetTitle(/*string title*/) {}
+    virtual void SetTitle(SString title) {}
 
     virtual void SetWidth(unsigned int width) {}
     virtual void SetHeight(unsigned int height) {}

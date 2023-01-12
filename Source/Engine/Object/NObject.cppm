@@ -9,6 +9,8 @@ export class NObject : public ObjectBase {
 public:
     static inline SString className = "Object";
     static const ObjectBase* prototype;
+public:
+
 };
 
 // Register NObject to ObjectFactory
