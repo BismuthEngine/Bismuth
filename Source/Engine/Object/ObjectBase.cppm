@@ -1,10 +1,9 @@
-module;
-
-#include <string>
-
 export module Object:ObjectBase;
+
+import Types;
 
 export class ObjectBase { 
 public:
-    static inline std::string className = "ObjectBase";
+    static inline SString className = "ObjectBase";
+    static const ObjectBase* prototype;
 };

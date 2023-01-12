@@ -3,13 +3,13 @@ export module Object:NObject;
 export import :ObjectBase;
 import :Reflector;
 
+import Types;
+
 export class NObject : public ObjectBase { 
 public:
-    static std::string className = "Object";
-
+    static inline SString className = "Object";
+    static const ObjectBase* prototype;
 };
 
 // Register NObject to ObjectFactory
-export
-template<> 
-const bool BismuthStaticObjectState<NObject>::bRegistered = DefferedBismuthStaticObjectRegister<NObject>();
+const ObjectBase* NObject::prototype = DefferedBismuthStaticObjectRegister<NObject>();

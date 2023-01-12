@@ -8,12 +8,14 @@ export module Object:Reflector;
 import :Concepts;
 import :ObjectBase;
 
+import Types;
+
 class NObject;
 
 export
 struct BismuthStaticObjectFactory {
-        static std::map<std::string, ObjectBase*>& GetRegistry() {
-                static std::map<std::string, ObjectBase*> registry;
+        static TMap<SString, ObjectBase*>& GetRegistry() {
+                static TMap<SString, ObjectBase*> registry;
                 return registry;
         }
 
@@ -27,14 +29,9 @@ struct BismuthStaticObjectFactory {
 
 export
 template <BismuthObject ObjectType>
-struct BismuthStaticObjectState {
-	static inline bool bRegistered;
-};
-
-export
-template <BismuthObject ObjectType>
-bool DefferedBismuthStaticObjectRegister() {
+ObjectBase* DefferedBismuthStaticObjectRegister() {
         auto& registry = BismuthStaticObjectFactory::GetRegistry();
-        registry[ObjectType::className] = BismuthStaticObjectFactory::CreateStaticObjectProrotype<ObjectType>();
-        return true;
+        auto SOP = BismuthStaticObjectFactory::CreateStaticObjectProrotype<ObjectType>();
+        registry.Set(ObjectType::className, SOP);
+        return SOP;
 };

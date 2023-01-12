@@ -1,3 +1,3 @@
 export module Services;
 
-export import :Service;
+export import :ServiceManager;
