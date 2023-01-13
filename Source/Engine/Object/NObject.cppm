@@ -1,9 +1,9 @@
 export module Object:NObject;
 
 export import :ObjectBase;
-import :Reflector;
+export import :Reflector;
 
-import Types;
+import :Concepts;
 
 export class NObject : public ObjectBase { 
 public:
@@ -11,6 +11,8 @@ public:
     static const ObjectBase* prototype;
 public:
 
+    template <BismuthObject ObjectType>
+    ObjectType* GetParentObject() {return nullptr;}
 };
 
 // Register NObject to ObjectFactory

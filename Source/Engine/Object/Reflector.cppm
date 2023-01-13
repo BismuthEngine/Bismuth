@@ -1,16 +1,9 @@
-module;
-
-#include <map>
-#include <string>
-
 export module Object:Reflector;
 
 import :Concepts;
 import :ObjectBase;
 
-import Types;
-
-class NObject;
+export import Types;
 
 export
 struct BismuthStaticObjectFactory {
