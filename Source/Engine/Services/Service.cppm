@@ -6,7 +6,8 @@ export module Services:Service;
 
 export class SService {
 public:
-    
+    virtual void Initialize() {}
+    virtual void Deinitialize() {}
 };
 
 export

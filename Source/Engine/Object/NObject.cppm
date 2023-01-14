@@ -17,3 +17,11 @@ public:
 
 // Register NObject to ObjectFactory
 const ObjectBase* NObject::prototype = DefferedBismuthStaticObjectRegister<NObject>();
+
+// Utilities
+
+export
+template <BismuthObject From, BismuthObject To>
+To* Cast(From* object) {
+    return dynamic_cast<To>(object);
+}

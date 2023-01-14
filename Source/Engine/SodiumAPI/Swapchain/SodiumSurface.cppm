@@ -1,6 +1,6 @@
 export module SodiumAPI:SodiumSurface;
 
-export enum class ESurfaceType {
+export enum class ESurfaceType : unsigned int {
     Win32,
     Wayland,
     X11,

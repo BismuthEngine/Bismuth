@@ -2,6 +2,8 @@ export module Fiber:Win32FiberWindow;
 
 import :FiberWindow;
 import :WindowsHeaderWrapper;
+
+import Sodium;
  
 import Types;
 
@@ -69,6 +71,8 @@ public:
         {
             // CRITICAL ERROR
         }
+
+        renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
     }
     
     virtual void Show() {ShowWindowStub(hwnd, false);}

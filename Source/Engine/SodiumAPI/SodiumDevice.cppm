@@ -9,6 +9,7 @@ export import :SodiumMemoryRequirements;
 export import :SodiumImage;
 export import :SodiumCmdBuffer;
 export import :SodiumDeviceMemory;
+export import :SodiumSurface;
 
 export struct SodiumDeviceCreationInfo {
 

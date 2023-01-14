@@ -8,8 +8,8 @@ import Types;
 
 export class IFiberWindow {
 protected:
-    const FiberDispatcher* eventDispatcher;
-    const SodiumRenderer* renderer;
+    FiberDispatcher* eventDispatcher;
+    SodiumRenderer* renderer;
 
 public:
     IFiberWindow() {

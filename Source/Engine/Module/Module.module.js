@@ -1,8 +1,8 @@
 
-module.exports = class ObjectModule {
+module.exports = class ModuleModule {
     constructor(target) {
-        this.Name = "Object";
-        this.Imports = ["Package", "Services", "Types", "Module"];
+        this.Name = "Module";
+        this.Imports = ["Types"];
         this.Exports = [];
         // This is BMT functionality provider, we can't address it to BMT
         this.useBMT = false;
