@@ -3,7 +3,7 @@ export module Object:NObject;
 export import :ObjectBase;
 export import :Reflector;
 
-import :Concepts;
+export import :Concepts;
 
 export class NObject : public ObjectBase { 
 public:
