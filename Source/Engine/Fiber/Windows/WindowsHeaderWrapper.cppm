@@ -31,6 +31,7 @@ export typedef WNDCLASS WndClass;
 
 export namespace WinAPIStatics {
     const inline DWord WS_OverlappedWindow = WS_OVERLAPPEDWINDOW;
+    const inline DWord WS_Visible = WS_VISIBLE;
 
     const inline DWord CW_UseDefault = CW_USEDEFAULT;
 

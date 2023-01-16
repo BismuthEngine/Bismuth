@@ -1,7 +1,7 @@
 #include "GuardedMain.h"
 #include <windows.h>
 
-#if defined(PLATFORM_WINDOWS)
+#if defined(PLATFORM_WINDOWS_)
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, INT nCmdShow)
 {
 	GuardedMain();

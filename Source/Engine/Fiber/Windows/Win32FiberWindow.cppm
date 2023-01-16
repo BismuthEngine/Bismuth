@@ -60,10 +60,10 @@ public:
             0,                              // Optional window styles.
             title,                     // Window class
             "Bismuth",                     // Window text
-            WinAPIStatics::WS_OverlappedWindow,            // Window style
+            WinAPIStatics::WS_Visible | WinAPIStatics::WS_OverlappedWindow,            // Window style
 
             // Size and position
-            WinAPIStatics::CW_UseDefault, WinAPIStatics::CW_UseDefault, WinAPIStatics::CW_UseDefault, WinAPIStatics::CW_UseDefault,
+            WinAPIStatics::CW_UseDefault, WinAPIStatics::CW_UseDefault, width, height,
 
             0,       // Parent window    
             0,       // Menu
@@ -80,8 +80,8 @@ public:
         //renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
     }
     
-    virtual void Show() override {ShowWindowStub(hwnd, false);}
-    virtual void Hide() override {}
+    virtual void Show() override {ShowWindowStub(hwnd, true);}
+    virtual void Hide() override {ShowWindowStub(hwnd, false);}
 
     virtual void Minimize() override {}
     virtual void Maximize() override {}
