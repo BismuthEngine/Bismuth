@@ -47,6 +47,7 @@ public:
 
         wc.lpfnWndProc   = Win32FiberWindow::WindowProc;
         wc.hInstance     = hInstance;
+        wc.hCursor = LoadCursorStub(0, WinAPIStatics::IDC_Arrow);
         wc.lpszClassName = title;
 
         if(!RegisterClassStub(&wc)) {
@@ -95,6 +96,8 @@ public:
     virtual void SetHeight(unsigned int height) override {}
 
     virtual void SetFullscreen(bool fullscreen) override {}
+
+    virtual void ShowCursor(bool show) override {ShowCursorStub(show);}
 
     virtual void Tick() override {
         if(GetMessageStub(&msg, 0, 0, 0) > 0) {

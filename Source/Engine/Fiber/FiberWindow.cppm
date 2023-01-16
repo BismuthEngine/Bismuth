@@ -39,4 +39,6 @@ public:
     virtual void Tick() {}
 
     virtual bool ShouldClose() const {return bShouldClose;}
+
+    virtual void ShowCursor(bool show) {}
 };

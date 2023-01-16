@@ -13,6 +13,7 @@ export typedef HWND HWnd;
 export typedef HINSTANCE HInstance;
 export typedef HMODULE HModule;
 export typedef HMENU HMenu;
+export typedef HCURSOR HCursor;
 
 export typedef LPCSTR LPCStr;
 export typedef LPVOID LPVoid;
@@ -47,6 +48,7 @@ export namespace WinAPIStatics {
     const inline UInt WM_MButtonUp = WM_MBUTTONUP;
     const inline UInt WM_Create = WM_CREATE;
 
+    const inline LPCStr IDC_Arrow = IDC_ARROW;
 }
 
 export HModule GetModuleHandleStub(LPCStr handle) {
@@ -91,4 +93,12 @@ export LongPtr GetWindowLongPtrStub(HWnd hwnd, int idx) {
 
 export void PostQuitMessageStub(int exitCode) {
     return PostQuitMessage(exitCode);
+}
+
+export HCursor LoadCursorStub(HInstance inst, LPCStr resource) {
+    return LoadCursor(inst, resource);
+}
+
+export int ShowCursorStub(bool show) {
+    return ShowCursor(show);
 }
