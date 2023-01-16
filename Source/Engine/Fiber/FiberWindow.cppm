@@ -18,7 +18,7 @@ public:
         renderer = new SodiumRenderer();
     }
 
-    virtual void Initialize(SString title, unsigned int width, unsigned int height, bool fullscreen = false) {}
+    virtual void Initialize(const char* title, unsigned int width, unsigned int height, bool fullscreen = false) {}
     
     virtual void Show() {}
     virtual void Hide() {}

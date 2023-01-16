@@ -6,27 +6,28 @@ import :WindowsHeaderWrapper;
 import Sodium;
  
 import Types;
+import Log;
 
 export class Win32FiberWindow : public IFiberWindow {
 protected:
-    HWnd hwnd;
-    HInstance hInstance;
+    HWnd hwnd = 0;
+    HInstance hInstance = 0;
     Msg msg;
 
     static LResult WindowProc(HWnd hwnd, UInt uMsg, WParam wParam, LParam lParam) {
         switch(uMsg) {
             case WinAPIStatics::WM_Destroy:
-
-                return 0;
+                PostQuitMessageStub(0);
+                break;
             case WinAPIStatics::WM_Create:
 
-                return 0;
+                break;
             case WinAPIStatics::WM_KeyDown:
 
-                return 0;
+                break;
             case WinAPIStatics::WM_KeyUp:
 
-                return 0;
+                break;
         }
 
         return DefWindowProcStub(hwnd, uMsg, wParam, lParam);
@@ -35,7 +36,7 @@ public:
     Win32FiberWindow() {
     }
 
-    virtual void Initialize(const char* title, unsigned int width, unsigned int height, bool fullscreen = false) {
+    virtual void Initialize(const char* title, unsigned int width, unsigned int height, bool fullscreen = false) override {
         // Get HINSTANCE
         hInstance = GetModuleHandleStub(0); 
 
@@ -48,7 +49,10 @@ public:
         wc.hInstance     = hInstance;
         wc.lpszClassName = title;
 
-        RegisterClassStub(&wc);
+        if(!RegisterClassStub(&wc)) {
+            // CRITICAL ERROR
+            Logger::CriticalError("");
+        }
 
         // Create the window.
 
@@ -70,10 +74,10 @@ public:
         if (hwnd == 0)
         {
             // CRITICAL ERROR
-           
+            Logger::CriticalError("");
         }
 
-        renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
+        //renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
     }
     
     virtual void Show() override {ShowWindowStub(hwnd, false);}

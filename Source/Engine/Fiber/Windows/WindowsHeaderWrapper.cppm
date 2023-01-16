@@ -87,3 +87,7 @@ export LongPtr SetWindowLongPtrStub(HWnd hwnd, int idx, LongPtr newLong) {
 export LongPtr GetWindowLongPtrStub(HWnd hwnd, int idx) {
     return GetWindowLongPtr(hwnd, idx);
 }
+
+export void PostQuitMessageStub(int exitCode) {
+    return PostQuitMessage(exitCode);
+}
