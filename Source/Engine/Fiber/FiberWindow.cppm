@@ -11,6 +11,7 @@ protected:
     FiberDispatcher* eventDispatcher;
     SodiumRenderer* renderer;
 
+    bool bShouldClose = false;
 public:
     IFiberWindow() {
         eventDispatcher = new FiberDispatcher();
@@ -34,4 +35,8 @@ public:
     virtual void SetHeight(unsigned int height) {}
 
     virtual void SetFullscreen(bool fullscreen) {}
+
+    virtual void Tick() {}
+
+    virtual bool ShouldClose() const {return bShouldClose;}
 };

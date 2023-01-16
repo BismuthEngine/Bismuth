@@ -1,12 +1,16 @@
-import Services;
+import Application;
 import Log;
 
-#include "GuardedMain.h"
+#include "GuardedMain.h" 
 
 int GuardedMain() {
-	const SServiceManager& servmgr = SServiceManager::Get();
+	SApplication application;
 
 	Logger::Log("Bismuth Engine");
 	
+	while(!application.ShouldQuit()) {
+		application.Tick();
+	}
+
 	return 0;
 }

@@ -5,6 +5,7 @@ export class IGenericPlatform {
 
     friend class SApplication;
 public:
+    IGenericPlatform() {}
     static IGenericPlatform& Get() {return IGenericPlatform::singleton;}
 
 };

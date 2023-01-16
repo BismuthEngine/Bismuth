@@ -35,18 +35,18 @@ public:
     Win32FiberWindow() {
     }
 
-    virtual void Initialize(SString title, unsigned int width, unsigned int height, bool fullscreen = false) {
+    virtual void Initialize(const char* title, unsigned int width, unsigned int height, bool fullscreen = false) {
         // Get HINSTANCE
         hInstance = GetModuleHandleStub(0); 
 
         // Register the window class.
         //const Wchar_t CLASS_NAME[] = title.Data();
 
-        WndClass wc = { };
+        WndClass wc = { 0 };
 
         wc.lpfnWndProc   = Win32FiberWindow::WindowProc;
         wc.hInstance     = hInstance;
-        wc.lpszClassName = title.Data();
+        wc.lpszClassName = title;
 
         RegisterClassStub(&wc);
 
@@ -54,7 +54,7 @@ public:
 
         hwnd = CreateWindowExStub(
             0,                              // Optional window styles.
-            title.Data(),                     // Window class
+            title,                     // Window class
             "Bismuth",                     // Window text
             WinAPIStatics::WS_OverlappedWindow,            // Window style
 
@@ -70,24 +70,34 @@ public:
         if (hwnd == 0)
         {
             // CRITICAL ERROR
+           
         }
 
         renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
     }
     
-    virtual void Show() {ShowWindowStub(hwnd, false);}
-    virtual void Hide() {}
+    virtual void Show() override {ShowWindowStub(hwnd, false);}
+    virtual void Hide() override {}
 
-    virtual void Minimize() {}
-    virtual void Maximize() {}
-    virtual void Restore() {}
+    virtual void Minimize() override {}
+    virtual void Maximize() override {}
+    virtual void Restore() override {}
 
-    virtual void MinMax() {}
+    virtual void MinMax() override {}
 
-    virtual void SetTitle(SString title) {}
+    virtual void SetTitle(SString title) override {}
 
-    virtual void SetWidth(unsigned int width) {}
-    virtual void SetHeight(unsigned int height) {}
+    virtual void SetWidth(unsigned int width) override {}
+    virtual void SetHeight(unsigned int height) override {}
 
-    virtual void SetFullscreen(bool fullscreen) {}
+    virtual void SetFullscreen(bool fullscreen) override {}
+
+    virtual void Tick() override {
+        if(GetMessageStub(&msg, 0, 0, 0) > 0) {
+            TranslateMessageStub(&msg);
+            DispatchMessageStub(&msg);
+        } else {
+            bShouldClose = true;
+        }
+    }
 };

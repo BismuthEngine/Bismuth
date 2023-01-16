@@ -2,9 +2,9 @@
 module.exports = class ApplicationModule {
     constructor(rules) {
         this.Name = "Application";
-        this.Imports = ["Engine", "Services", "Log"];
+        this.Imports = ["Engine", "Fiber"];
         this.Exports = [];
 
-        this.Module = false;
+        this.Module = true;
     }
 };
