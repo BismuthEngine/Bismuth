@@ -2,6 +2,5 @@ module;
 
 export module SodiumVulkan;
 
-import :vulka;
-
+export import :SodiumInstance;
 // Exports here

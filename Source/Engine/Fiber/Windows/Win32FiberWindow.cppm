@@ -78,7 +78,9 @@ public:
             Logger::CriticalError("");
         }
 
-        //renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
+        Logger::Log("Fiber: Window created");
+
+        renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
     }
     
     virtual void Show() override {ShowWindowStub(hwnd, true);}

@@ -2,6 +2,8 @@ export module Sodium:SodiumRenderer;
 
 import :Loader;
 
+import Log;
+
 export class SodiumRenderer {
 protected:
     ISodiumInstance* instance;
@@ -11,6 +13,10 @@ public:
         SodiumInstanceCreationInfo info;
  
         instance = Sodium::CreateInstance(info);
+
+        if(!instance) {
+            Logger::CriticalError("[SODIUM]: Was not able to create instance");
+        }
     }
 
     void InitializeWithSurface(ESurfaceType type, void* handle) {

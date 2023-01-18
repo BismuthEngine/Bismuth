@@ -6,12 +6,16 @@ export import :Reflector;
 export import :Concepts;
 
 export class NObject : public ObjectBase { 
+protected:
+    NObject* Parent;
+    
 public:
     static inline SString className = "Object";
     static const ObjectBase* prototype;
 public:
 
-    template <BismuthObject ObjectType>
+    // Returns firsst parent object of type (NObject by default)
+    template <BismuthObject ObjectType = NObject>
     ObjectType* GetParentObject() {return nullptr;}
 };
 
@@ -21,7 +25,7 @@ const ObjectBase* NObject::prototype = DefferedBismuthStaticObjectRegister<NObje
 // Utilities
 
 export
-template <BismuthObject From, BismuthObject To>
+template <BismuthObject To, BismuthObject From>
 To* Cast(From* object) {
     return dynamic_cast<To>(object);
 }

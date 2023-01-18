@@ -53,23 +53,13 @@ public:
 
 	// Creates specified API's Instance
 	static ISodiumInstance* CreateInstance(SodiumInstanceCreationInfo createInfo) {
-		switch (SAPI) {
-		case Vulkan:
-			//VkSodiumInstance* device = new VkSodiumInstance();
-			return nullptr;
-			break;
-		case DirectX12:
-#			if PLATFORM_WINDOWS
-
-#			endif
-		default:
-			//TODO Log errorr
-			break;
-		};
+		if(SAPI == ESodiumAPI::Vulkan) {
+			return new VkSodiumInstance(createInfo);
+		}
 
 		return nullptr;
 	}
 };
 
-ESodiumAPI Sodium::SAPI = ESodiumAPI::None;
+ESodiumAPI Sodium::SAPI = ESodiumAPI::Vulkan;
 bool Sodium::bDeviceCreated = false;

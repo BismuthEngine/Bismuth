@@ -4,7 +4,7 @@ export module Object;
 import Services;
 
 export import :NObject;
-export import :Library;
+export import :Manager;
 
 /*export class ObjectModuleEntry : public ModuleEntry {
 public:

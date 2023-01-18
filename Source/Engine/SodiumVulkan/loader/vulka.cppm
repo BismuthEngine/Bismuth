@@ -22,9 +22,20 @@ module;
 
 export module SodiumVulkan:vulka;
 
-
 // Vulkan Loader namespace
-export namespace vkl {
+export namespace vk {
+
+typedef VkInstance Instance;
+typedef VkResult Result;
+typedef VkSurfaceKHR SurfaceKHR;
+
+#ifdef _WIN32
+	typedef VkWin32SurfaceCreateInfoKHR Win32SurfaceCreateInfoKHR;
+	typedef VkStructureType StructureType;
+#endif
+
+bool bInitialized = false;
+
 #if defined(VK_VERSION_1_0)
 PFN_vkAllocateCommandBuffers vkAllocateCommandBuffers;
 PFN_vkAllocateDescriptorSets vkAllocateDescriptorSets;
@@ -1673,6 +1684,10 @@ PFN_vkVoidFunction vkGetInstanceProcAddrStub(void* context, const char* name)
 }
 
 VkResult InitializeLoader(void) {
+	if(bInitialized) {
+		return VK_SUCCESS;
+	}
+
     #if defined(_WIN32)
 	        HMODULE module = LoadLibraryA("vulkan-1.dll");
 	    if (!module)
@@ -1700,6 +1715,8 @@ VkResult InitializeLoader(void) {
     #endif
 
 	LoadMethodsHandles(NULL, vkGetInstanceProcAddrStub);
+
+	bInitialized = true;
 
 	return VK_SUCCESS;
 }

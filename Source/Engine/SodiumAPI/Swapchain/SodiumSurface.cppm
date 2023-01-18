@@ -13,7 +13,7 @@ export struct SodiumSurfaceCreateInfo {
     // HWND for Win32
     // Display for XLib
     // wl_display for Wayland
-    const void* pHandle;
+    void* pHandle;
 };
 
 export class ISodiumSurface {

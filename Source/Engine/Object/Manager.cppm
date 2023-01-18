@@ -1,4 +1,4 @@
-export module Object:Library;
+export module Object:Manager;
 
 import Services;
 
