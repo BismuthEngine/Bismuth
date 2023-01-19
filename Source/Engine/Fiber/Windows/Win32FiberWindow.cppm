@@ -80,7 +80,7 @@ public:
 
         Logger::Log("Fiber: Window created");
 
-        renderer->InitializeWithSurface(ESurfaceType::Win32, hwnd);
+        renderer->InitializeWithSurface(ESurfaceType::Win32, static_cast<void*>(&hwnd));
     }
     
     virtual void Show() override {ShowWindowStub(hwnd, true);}

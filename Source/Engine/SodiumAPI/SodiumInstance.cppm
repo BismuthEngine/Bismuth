@@ -4,7 +4,10 @@ export import :SodiumPhysicalDevice;
 export import :SodiumSurface;
 
 export struct SodiumInstanceCreationInfo {
-
+    const char*        pApplicationName;
+    unsigned int       applicationVersion;
+    const char*        pEngineName;
+    unsigned int       engineVersion;
 };
 
 export class ISodiumInstance {

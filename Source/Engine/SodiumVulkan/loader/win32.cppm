@@ -5,7 +5,7 @@ module;
 export module SodiumVulkan:win32;
 
 export HWND ExtractHWND(void* hWnd) {
-    return reinterpret_cast<HWND>(hWnd);
+    return *static_cast<HWND*>(hWnd);
 }
 
 export HINSTANCE GetWindowInstance(void* hWnd) {
