@@ -49,15 +49,15 @@ public:
             #ifdef _WIN32
                 vk::Win32SurfaceCreateInfoKHR cinfo;
                 cinfo.sType = VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR;
-                cinfo.pNext = nullptr;
                 cinfo.hwnd = ExtractHWND(info.pHandle);
                 cinfo.hinstance = GetWindowInstance(info.pHandle);
-
-               if(vk::vkCreateInstance == nullptr) {
+                
+                /*if(vk::vkCreateWin32SurfaceKHR(instance, &cinfo, nullptr, &surface) != VK_SUCCESS) {
                     Logger::CriticalError("[Sodium][Vulkan] vkCreateWin32SurfaceKHR was not loaded!");
                     return nullptr;
-                }
-                //vk::vkCreateWin32SurfaceKHR(instance, &cinfo, nullptr, &surface);
+                }*/
+
+                Logger::Log("[Sodium][Vulkan] Created vkCreateWin32SurfaceKHR!");
 
                 return new VkSodiumSurface(surface);
             #else
