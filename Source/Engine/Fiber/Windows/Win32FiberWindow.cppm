@@ -60,7 +60,7 @@ public:
         hwnd = CreateWindowExStub(
             0,                              // Optional window styles.
             title,                     // Window class
-            "Bismuth",                     // Window text
+            title,                     // Window text
             WinAPIStatics::WS_Visible | WinAPIStatics::WS_OverlappedWindow,            // Window style
 
             // Size and position

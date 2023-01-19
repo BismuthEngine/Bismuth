@@ -5,9 +5,10 @@ export import :SodiumSurface;
 
 export struct SodiumInstanceCreationInfo {
     const char*        pApplicationName;
-    unsigned int       applicationVersion;
     const char*        pEngineName;
-    unsigned int       engineVersion;
+    unsigned int       vMajor;
+    unsigned int       vMinor;
+    unsigned int       vPatch;
 };
 
 export class ISodiumInstance {

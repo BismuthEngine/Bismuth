@@ -41,6 +41,9 @@ typedef VkApplicationInfo ApplicationInfo;
 typedef VkInstanceCreateInfo InstanceCreateInfo;
 
 typedef VkDevice Device;
+typedef VkPhysicalDevice PhysicalDevice;
+typedef VkPhysicalDeviceProperties PhysicalDeviceProperties;
+typedef VkPhysicalDeviceFeatures PhysicalDeviceFeatures;
 typedef VkSurfaceKHR SurfaceKHR;
 
 #ifdef _WIN32

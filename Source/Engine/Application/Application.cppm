@@ -22,7 +22,7 @@ public:
 
         window = FiberFactory::CreateWindow();
 
-        window->Initialize("Bismuth Engine", 1280, 720);
+        window->Initialize("Bismuth", 1280, 720);
         window->Show();
     }
 

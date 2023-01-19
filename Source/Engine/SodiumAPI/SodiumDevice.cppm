@@ -26,6 +26,5 @@ public:
     virtual ISodiumCmdBuffer* CreateCommandBuffer(SodiumCmdBufferCreateInfo info) {return nullptr;}
 
     virtual ISodiumDeviceMemory* AllocateMemory(SodiumMemoryAllocateInfo info) {return nullptr;}
-
     virtual ISodiumMemoryRequirements* GetImageMemoryRequirements(ISodiumImage* image) {return nullptr;}
 };

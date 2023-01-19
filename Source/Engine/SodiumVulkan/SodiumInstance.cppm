@@ -5,6 +5,7 @@ import SodiumAPI;
 import Log;
 
 import :SodiumSurface;
+import :SodiumPhysicalDevice;
 
 #ifdef _WIN32
 import :win32;
@@ -24,9 +25,9 @@ public:
         vk::ApplicationInfo appinfo = {};
         appinfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
         appinfo.pApplicationName = createInfo.pApplicationName;
-        appinfo.applicationVersion = vk::MAKE_API_VERSION(1, 0, 0);
-        appinfo.pEngineName = "Sodium";
-        appinfo.engineVersion = vk::MAKE_API_VERSION(1, 0, 0);
+        appinfo.applicationVersion = vk::MAKE_API_VERSION(createInfo.vMajor, createInfo.vMinor, createInfo.vPatch);
+        appinfo.pEngineName = createInfo.pEngineName;
+        appinfo.engineVersion = vk::MAKE_API_VERSION(createInfo.vMajor, createInfo.vMinor, createInfo.vPatch);
         appinfo.apiVersion = vk::API_VERSION_1_0;
 
         vk::InstanceCreateInfo cinfo = {};
@@ -42,7 +43,12 @@ public:
         Logger::Log("[Sodium][Vulkan] Instance created!");
     }
 
-    //virtual ISodiumPhysicalDevice* CreatePhysicalDevice() {return nullptr;}
+    virtual ISodiumPhysicalDevice* CreatePhysicalDevice() override {
+        vk::PhysicalDevice device;
+        
+        return new VkSodiumPhysicalDevice(device);
+    }
+
     virtual ISodiumSurface* CreateSurface(SodiumSurfaceCreateInfo info) override {
         vk::SurfaceKHR surface;
         if(info.surfaceType == ESurfaceType::Win32) {
@@ -60,8 +66,6 @@ public:
                 Logger::Log("[Sodium][Vulkan] Created vkCreateWin32SurfaceKHR!");
 
                 return new VkSodiumSurface(surface);
-            #else
-                return nullptr;
             #endif
         }
         return nullptr;
