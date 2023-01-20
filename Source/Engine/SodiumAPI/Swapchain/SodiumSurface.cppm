@@ -1,5 +1,7 @@
 export module SodiumAPI:SodiumSurface;
 
+export import :SodiumObject;
+
 export enum class ESurfaceType : unsigned int {
     Win32,
     Wayland,
@@ -16,6 +18,6 @@ export struct SodiumSurfaceCreateInfo {
     void* pHandle;
 };
 
-export class ISodiumSurface {
+export class ISodiumSurface : public ISodiumObject {
 
 };

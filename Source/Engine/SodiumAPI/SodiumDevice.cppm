@@ -11,11 +11,13 @@ export import :SodiumCmdBuffer;
 export import :SodiumDeviceMemory;
 export import :SodiumSurface;
 
+export import :SodiumObject;
+
 export struct SodiumDeviceCreationInfo {
 
 };
 
-export class ISodiumDevice {
+export class ISodiumDevice : public ISodiumObject {
 public:
 
     virtual ISodiumShaderModule* CreateShaderModule(SodiumShaderModuleCreateInfo info) {return nullptr;}

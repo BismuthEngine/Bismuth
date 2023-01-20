@@ -20,19 +20,19 @@ public:
         instanceInfo.vPatch = 1;
  
         instance = Sodium::CreateInstance(instanceInfo);
-        if(!instance) {
+        if(!instance || !instance->IsValid()) {
             Logger::CriticalError("[SODIUM]: Was not able to create instance");
         }
         
         physicalDevice = instance->CreatePhysicalDevice();
-        if(!physicalDevice) {
+        if(!physicalDevice || !physicalDevice->IsValid()) {
             Logger::CriticalError("[SODIUM]: Was not able to pick physical device");
         }
 
         SodiumDeviceCreationInfo deviceInfo;
 
         device = physicalDevice->CreateDevice(deviceInfo);
-        if(!device) {
+        if(!device || !device->IsValid()) {
             Logger::CriticalError("[SODIUM]: Was not able to create device");
         }
     }

@@ -30,7 +30,7 @@ export {
 // Vulkan Loader namespace
 export namespace vk {
 
-constexpr unsigned int MAKE_API_VERSION(unsigned int major, unsigned int minor, unsigned int patch, unsigned int variant = 0) {
+constexpr inline unsigned int MAKE_API_VERSION(unsigned int major, unsigned int minor, unsigned int patch, unsigned int variant = 0) {
 	return ((((uint32_t)(variant)) << 29) | (((uint32_t)(major)) << 22) | (((uint32_t)(minor)) << 12) | ((uint32_t)(patch)));
 }
  

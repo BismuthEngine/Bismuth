@@ -15,6 +15,8 @@ export class VkSodiumInstance : public ISodiumInstance {
 protected:
     vk::Instance instance;
 public:
+    virtual bool IsValid() const override {return instance != nullptr;}
+
     VkSodiumInstance(SodiumInstanceCreationInfo createInfo) {
         if(vk::InitializeLoader() != VK_SUCCESS) {
             Logger::CriticalError("[Sodium][Vulkan] Failed Initialization!");
