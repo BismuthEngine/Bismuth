@@ -11,3 +11,7 @@ export HWND ExtractHWND(void* hWnd) {
 export HINSTANCE GetWindowInstance(void* hWnd) {
     return (HINSTANCE)GetWindowLong(ExtractHWND(hWnd), -6);
 }
+
+export HINSTANCE GetThisModuleInstance() {
+    return GetModuleHandle(nullptr);
+}

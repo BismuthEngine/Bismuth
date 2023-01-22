@@ -13,6 +13,10 @@ public:
         : device(dev)
     {}
 
+    virtual bool IsValid() const override {
+        return device != nullptr;
+    }
+
     virtual ISodiumDevice* CreateDevice(SodiumDeviceCreationInfo info) override {
         vk::Device device;
 

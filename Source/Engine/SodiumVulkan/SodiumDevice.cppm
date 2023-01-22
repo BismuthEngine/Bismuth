@@ -11,6 +11,10 @@ public:
 
     }
 
+    virtual bool IsValid() const override {
+        return true;
+    }
+
     virtual ISodiumShaderModule* CreateShaderModule(SodiumShaderModuleCreateInfo info) override {return nullptr;}
     virtual ISodiumBuffer* CreateBuffer(SodiumBufferCreateInfo info) override {return nullptr;}
     virtual ISodiumPipeline* CreatePipeline(SodiumPipelineCreateInfo info) override {return nullptr;}

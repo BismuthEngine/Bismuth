@@ -21,8 +21,7 @@ export enum class FiberEventType : std::uint8_t {
     InputAxis
 };
 
-export class FiberEvent {
-public:
+export struct FiberEvent {
     FiberEvent(FiberEventType eventType)
     : type(eventType)
     {

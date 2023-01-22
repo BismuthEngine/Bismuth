@@ -35,6 +35,9 @@ constexpr inline unsigned int MAKE_API_VERSION(unsigned int major, unsigned int 
 }
  
 const inline unsigned int API_VERSION_1_0 = VK_API_VERSION_1_0; 
+const inline unsigned int API_VERSION_1_1 = VK_API_VERSION_1_1;
+const inline unsigned int API_VERSION_1_2 = VK_API_VERSION_1_2;
+const inline unsigned int API_VERSION_1_3 = VK_API_VERSION_1_3; 
 
 typedef VkInstance Instance;
 typedef VkApplicationInfo ApplicationInfo;

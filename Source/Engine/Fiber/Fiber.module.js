@@ -2,7 +2,7 @@
 module.exports = class FiberModule {
     constructor(target) {
         this.Name = "Fiber";
-        this.Imports = ["Sodium", "Log"];
+        this.Imports = ["Sodium", "Log", "Types"];
         this.Exports = [];
         this.Exclude = [];
         // Fiber is not intended for in-editor use, no need in reflecion
