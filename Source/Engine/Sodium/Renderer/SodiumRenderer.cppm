@@ -29,12 +29,16 @@ public:
             Logger::CriticalError("[SODIUM]: Was not able to pick physical device");
         }
 
+        Logger::Log("[SODIUM]: Picked physical device");
+
         SodiumDeviceCreationInfo deviceInfo;
 
         device = physicalDevice->CreateDevice(deviceInfo);
         if(!device || !device->IsValid()) {
             Logger::CriticalError("[SODIUM]: Was not able to create device");
         }
+
+        Logger::Log("[SODIUM]: Created device");
     }
 
     void InitializeWithSurface(ESurfaceType type, void* handle) {

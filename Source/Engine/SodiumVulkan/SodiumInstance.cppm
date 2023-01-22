@@ -34,7 +34,7 @@ public:
         appinfo.applicationVersion = vk::MAKE_API_VERSION(createInfo.vMajor, createInfo.vMinor, createInfo.vPatch);
         appinfo.pEngineName = createInfo.pEngineName;
         appinfo.engineVersion = vk::MAKE_API_VERSION(createInfo.vMajor, createInfo.vMinor, createInfo.vPatch);
-        appinfo.apiVersion = vk::API_VERSION_1_2;
+        appinfo.apiVersion = vk::API_VERSION_1_1;
 
         // TODO Dynamic arrays, isolate win32
         const char* extensions[] = {"VK_KHR_surface", "VK_KHR_win32_surface"};

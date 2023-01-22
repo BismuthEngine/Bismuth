@@ -47,7 +47,11 @@ typedef VkDevice Device;
 typedef VkPhysicalDevice PhysicalDevice;
 typedef VkPhysicalDeviceProperties PhysicalDeviceProperties;
 typedef VkPhysicalDeviceFeatures PhysicalDeviceFeatures;
+typedef VkDeviceCreateInfo DeviceCreateInfo;
 typedef VkSurfaceKHR SurfaceKHR;
+
+typedef VkQueueFamilyProperties QueueFamilyProperties;
+typedef VkDeviceQueueCreateInfo DeviceQueueCreateInfo;
 
 #ifdef _WIN32
 	typedef VkWin32SurfaceCreateInfoKHR Win32SurfaceCreateInfoKHR;
@@ -1781,7 +1785,7 @@ VkResult vkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInf
 
 	device = *pDevice;
 
-	LoadDeviceHandles(device, vkGetInstanceProcAddrStub);
+	//LoadDeviceHandles(device, vkGetInstanceProcAddrStub);
 
 	return VK_SUCCESS;
 }

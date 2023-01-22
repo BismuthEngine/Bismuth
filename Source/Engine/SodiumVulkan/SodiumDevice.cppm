@@ -8,11 +8,11 @@ export class VkSodiumDevice : public ISodiumDevice {
 public:
 
     VkSodiumDevice(vk::Device dev) {
-
+        device = dev;
     }
 
     virtual bool IsValid() const override {
-        return true;
+        return device != nullptr;
     }
 
     virtual ISodiumShaderModule* CreateShaderModule(SodiumShaderModuleCreateInfo info) override {return nullptr;}
