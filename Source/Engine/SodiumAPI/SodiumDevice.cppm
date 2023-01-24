@@ -10,6 +10,7 @@ export import :SodiumImage;
 export import :SodiumCmdBuffer;
 export import :SodiumDeviceMemory;
 export import :SodiumSurface;
+export import :SodiumSwapchain;
 
 export import :SodiumObject;
 
@@ -29,4 +30,6 @@ public:
 
     virtual ISodiumDeviceMemory* AllocateMemory(SodiumMemoryAllocateInfo info) {return nullptr;}
     virtual ISodiumMemoryRequirements* GetImageMemoryRequirements(ISodiumImage* image) {return nullptr;}
+
+    virtual ISodiumSwapchain* CreateSwapchain(SodiumSwapchainCreateInfo info) {return nullptr;}
 };

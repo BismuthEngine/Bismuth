@@ -43,9 +43,9 @@ public:
         vk::InstanceCreateInfo cinfo = {};
         cinfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
         cinfo.pApplicationInfo = &appinfo;
-        cinfo.enabledLayerCount = static_cast<unsigned int>(1);
+        cinfo.enabledLayerCount = static_cast<vk::uint32>(1);
         cinfo.ppEnabledLayerNames = validationLayers;
-        cinfo.enabledExtensionCount = static_cast<unsigned int>(2);
+        cinfo.enabledExtensionCount = static_cast<vk::uint32>(2);
         cinfo.ppEnabledExtensionNames = extensions;
 
         if(vk::vkCreateInstance(&cinfo, nullptr, &instance) != VK_SUCCESS) {
@@ -56,7 +56,7 @@ public:
     }
 
     virtual ISodiumPhysicalDevice* CreatePhysicalDevice() override {
-        unsigned int deviceCount = 0;
+        vk::uint32 deviceCount = 0;
         vk::vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
 
         if(deviceCount == 0) {

@@ -9,4 +9,12 @@ public:
     VkSodiumSurface(vk::SurfaceKHR _surface) {
         surface = _surface;
     }
+
+    vk::SurfaceKHR GetSurfaceKHR() const {
+        return surface;
+    }
+
+    virtual bool IsValid() const override {
+        return surface != nullptr;
+    }
 };

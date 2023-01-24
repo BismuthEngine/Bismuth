@@ -1,3 +1,7 @@
+module;
+
+#include <vector>
+
 export module Delegate;
 
-export int A() {return 32;}
+export import :Partition;

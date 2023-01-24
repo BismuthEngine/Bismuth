@@ -25,6 +25,7 @@ export module SodiumVulkan:vulka;
 export {
 	typedef VkStructureType VkStructureType;
 	typedef VkResult VkResult;
+	typedef VkFormat VkFormat;
 };
 
 // Vulkan Loader namespace
@@ -39,6 +40,10 @@ const inline unsigned int API_VERSION_1_1 = VK_API_VERSION_1_1;
 const inline unsigned int API_VERSION_1_2 = VK_API_VERSION_1_2;
 const inline unsigned int API_VERSION_1_3 = VK_API_VERSION_1_3; 
 
+const inline unsigned int QUEUE_GRAPHICS_BIT = VK_QUEUE_GRAPHICS_BIT; 
+
+typedef uint32_t uint32;
+
 typedef VkInstance Instance;
 typedef VkApplicationInfo ApplicationInfo;
 typedef VkInstanceCreateInfo InstanceCreateInfo;
@@ -52,6 +57,18 @@ typedef VkSurfaceKHR SurfaceKHR;
 
 typedef VkQueueFamilyProperties QueueFamilyProperties;
 typedef VkDeviceQueueCreateInfo DeviceQueueCreateInfo;
+
+typedef VkSwapchainKHR SwapchainKHR;
+typedef VkSwapchainCreateInfoKHR SwapchainCreateInfoKHR;
+typedef VkSurfaceCapabilitiesKHR SurfaceCapabilitiesKHR;
+typedef VkFramebuffer Framebuffer;
+typedef VkImage Image;
+typedef VkImageCreateInfo ImageCreateInfo;
+typedef VkImageView ImageView;
+typedef VkImageViewCreateInfo ImageViewCreateInfo;
+typedef VkExtent2D Extent2D;
+typedef VkPresentModeKHR PresentModeKHR;
+typedef VkSurfaceFormatKHR SurfaceFormatKHR;
 
 #ifdef _WIN32
 	typedef VkWin32SurfaceCreateInfoKHR Win32SurfaceCreateInfoKHR;
@@ -1765,6 +1782,11 @@ void LoadDeviceHandles(void* context, PFN_vkVoidFunction (*load)(void*, const ch
 
 VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance) 
 {
+	if(instance != nullptr) {
+		*pInstance = instance;
+		return VK_SUCCESS;
+	}
+
 	if(_vkCreateInstance(pCreateInfo, pAllocator, pInstance) != VK_SUCCESS) {
 		return VK_ERROR_INITIALIZATION_FAILED;
 	}
@@ -1779,6 +1801,11 @@ VkResult vkCreateInstance(const VkInstanceCreateInfo* pCreateInfo, const VkAlloc
 VkResult vkCreateDevice(VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo, 
 						const VkAllocationCallbacks* pAllocator, VkDevice* pDevice) 
 {
+	if(device != nullptr) {
+		*pDevice = device;
+		return VK_SUCCESS;
+	}
+
 	if(_vkCreateDevice(physicalDevice, pCreateInfo, pAllocator, pDevice) != VK_SUCCESS) {
 		return VK_ERROR_INITIALIZATION_FAILED;
 	}

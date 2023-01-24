@@ -10,6 +10,7 @@ protected:
     ISodiumPhysicalDevice* physicalDevice;
     ISodiumDevice* device;
     ISodiumSurface* surface;
+    ISodiumSwapchain* swapchain;
 public:
     SodiumRenderer() {
         SodiumInstanceCreationInfo instanceInfo;
@@ -47,5 +48,14 @@ public:
         info.pHandle = handle;
         
         surface = instance->CreateSurface(info);
+
+        SodiumSwapchainCreateInfo swapchainInfo = {};
+
+        swapchain = device->CreateSwapchain(swapchainInfo);
+        if(!swapchain || !swapchain->IsValid()) {
+            Logger::CriticalError("[SODIUM]: Was not able to create swapchain");
+        }
+
+        Logger::Log("[SODIUM]: Created swapchain");
     }
 };

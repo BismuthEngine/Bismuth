@@ -1,9 +1,11 @@
 export module SodiumAPI:SodiumImage;
 
+import :SodiumObject;
+
 export struct SodiumImageCreateInfo {
 
 };
 
-export class ISodiumImage {
+export class ISodiumImage : public ISodiumObject {
 
 };
